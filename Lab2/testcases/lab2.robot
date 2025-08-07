@@ -10,11 +10,13 @@ Suite Teardown    Close web browser
 *** Test Cases ***
 Home Page Should Load
     [Documentation]    Test Case 1001: Home page should load (Smoke, Feature: Home)
+    [Tags]    Smoke    Home
     Navigate To Home Page
     User Examines Home Page Contents
 
 Login Should Succeed With Valid Credentials
     [Documentation]    Test Case 1002: Login should succeed with valid credentials (Smoke, Feature: Login)
+    [Tags]    Smoke    Login
     Navigate To Home Page
     Click Login Link
     Type Valid Login Credentials
@@ -22,6 +24,7 @@ Login Should Succeed With Valid Credentials
 
 Login Should Fail With Missing Credentials
     [Documentation]    Test Case 1003: Login should fail with missing credentials (Functional, Feature: Login)
+    [Tags]    Functional    Login
     Navigate To Home Page
     Click Login Link
     Skip Login Credentials
@@ -29,6 +32,7 @@ Login Should Fail With Missing Credentials
 
 Remember Me Checkbox Should Persist Email Address
     [Documentation]    Test Case 1004: "Remember me" checkbox should persist email address (Functional, Feature: Login)
+    [Tags]    Functional    Login
     Navigate To Home Page
     Click Login Link
     Type Valid Login Credentials
@@ -41,6 +45,7 @@ Remember Me Checkbox Should Persist Email Address
 
 Should Be Able To Log Out
     [Documentation]    Test Case 1005: Should be able to log out (Functional, Feature: Login)
+    [Tags]    Functional    Login
     Navigate To Home Page
     Click Login Link
     Type Valid Login Credentials
@@ -49,6 +54,7 @@ Should Be Able To Log Out
 
 Customers Page Should Display Multiple Customers
     [Documentation]    Test Case 1006: Customers page should display multiple customers (Smoke, Feature: Customers)
+    [Tags]    Smoke    Customers
     Navigate To Home Page
     Click Login Link
     Type Valid Login Credentials
@@ -57,6 +63,7 @@ Customers Page Should Display Multiple Customers
 
 Should Be Able To Add New Customer
     [Documentation]    Test Case 1007: Should be able to add new customer (Smoke, Feature: Customers)
+    [Tags]    Smoke    Customers
     Navigate To Home Page
     Click Login Link
     Type Valid Login Credentials
@@ -73,6 +80,7 @@ Should Be Able To Add New Customer
 
 Should Be Able To Cancel Adding New Customer
     [Documentation]    Test Case 1008: Should be able to cancel adding new customer (Functional, Feature: Customers)
+    [Tags]    Functional    Customers
     Navigate To Home Page
     Click Login Link
     Type Valid Login Credentials
