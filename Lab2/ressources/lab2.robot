@@ -65,10 +65,10 @@ Click Logout Link
     Log To Console    Logged out successfully, signed out page displayed.
 
 Verify Email Is Pre-populated
-    # ${email_value}=    Get Value    ${EMAIL_INPUT}
+    ${email_value}=    Get Value    ${EMAIL_INPUT}
     # Should Be Equal    ${email_value}    ${VALID_EMAIL} (ne correpond pas à la variable mais il est vide)
     # Log To Console    Email field is correctly pre-populated with: ${email_value}
-    Should Be Empty    ${EMAIL_INPUT}
+    Should Be Empty    ${email_value}
     Log To Console    Email field is not pre-populated, as expected.
 
 Examine Customers Grid For Multiple Records
