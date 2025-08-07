@@ -5,7 +5,7 @@ Library           OperatingSystem
 Library           String
 Library           SeleniumLibrary
 Library           ../resources/mongo_helper.py
-Variables         ../variables/mongodb_vars.py
+Variables         ../pageobject/mongodb_vars.py
 
 *** Keywords ***
 
