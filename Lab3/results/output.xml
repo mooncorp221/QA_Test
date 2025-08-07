@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.4 on win32)" generated="2025-08-07T00:15:27.956922" rpa="false" schemaversion="5">
+<suite id="s1" name="Lab3" source="C:\Lamine\Prog\Python\QA Test\Lab2\Lab3\testcases\lab3.robot">
+<kw name="Create Session To eBay API" owner="lab3" type="SETUP">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Creating session to eBay Fulfillment API: ${BASE_URL}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-07T00:15:28.937070" elapsed="0.004002"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-07T00:15:28.942219" level="INFO">Creating Session using : alias=ebay, url=https://api.sandbox.ebay.com/sell/fulfillment/v1, headers={},                     cookies={}, auth=None, timeout=30, proxies=None, verify=False,                     debug=0 </msg>
+<arg>ebay</arg>
+<arg>${BASE_URL}</arg>
+<arg>timeout=${REQUEST_TIMEOUT}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-07T00:15:28.941505" elapsed="0.037846"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Session created successfully.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-07T00:15:28.979730" elapsed="0.011288"/>
+</kw>
+<status status="PASS" start="2025-08-07T00:15:28.935566" elapsed="0.055654"/>
+</kw>
+<test id="s1-t1" name="TC_3001_Create_Shipping_Fulfillment_Valid_Data" line="11">
+<kw name="Create Shipping Fulfillment With Valid Data" owner="lab3">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Creating shipping fulfillment for order: ${order_id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-07T00:15:28.994985" elapsed="0.000635"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-08-07T00:15:28.996418" level="INFO">${endpoint} = /order/6012345678901!2876543210987/shipping_fulfillment</msg>
+<var>${endpoint}</var>
+<arg>${CREATE_FULFILLMENT_ENDPOINT}</arg>
+<arg>{orderId}</arg>
+<arg>${order_id}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-08-07T00:15:28.996054" elapsed="0.000415"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-08-07T00:15:30.544100" level="INFO">POST Request : url=https://api.sandbox.ebay.com/sell/fulfillment/v1/order/6012345678901!2876543210987/shipping_fulfillment 
+ path_url=/sell/fulfillment/v1/order/6012345678901!2876543210987/shipping_fulfillment 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer v^1.1#i^1#f^0#r^0#I^3#p^3#t^H4sIAAAAAAAA/+VZa2wcRx332U6IW5xCMSQqibCO8qq7d7Ov27tV7srZPsdu/Yr3XMeu6HV2d9Y39t7uemfX9kVI2KkU0ZYg2qZVCkJYtBLiQ0tFVSmqIsoXSkGgqKjlUT4UAWrBSKUoICQeFbN3jnM+2sR3Wykn2C+rnf2/fv/XvMDa3q5bTg2f+nt35H3tG2tgrT0SYa8HXXv39O3vaL9pTxuoIYhsrN281nmy4w9HCCyZjjyFiGNbBPWulkyLyJXBdNR3LdmGBBPZgiVEZE+TlezYqMzFgOy4tmdrthntHRlMR0VdA6rGAQmwIqcaKh21LsnM2/S/ZrBCMiXwiDUgMBD9T4iPRiziQctLRznAiQxIMkDKAyADSRYSMV6S5qK9dyKXYNuiJDEQzVTMlSu8bo2tVzYVEoJcjwqJZkayQ8pEdmQwN54/Eq+Rldnyg+JBzyc7vwZsHfXeCU0fXVkNqVDLiq9piJBoPFPVsFOonL1kTBPmV1yd1IyEkeJ5XjeSrCEm3hNXDtluCXpXtiMYwTpjVEhlZHnYK1/No9Qb6gLSvK2vcSpiZLA3eB3zoYkNjNx0NNefnZ1WclPRXmVy0rWXsY70ACnLCwIrspwUzXiIUBcit2BClS9ggrd0VQVuebpO2YBt6TjwG+kdt71+RA1HNe5J5DleFmvcQ4kmrAk3a3iBUbVu5LbdyM0Fca0G0veKVhBaVKK+6K18Xj0Il7Lich68V3khcLQGBQOIHIQ8AqmdeRHUenO5kQnCk52cjAe2IBWWmRJ0F5HnmFBDjEbd65eQi3WZFw2OTxqI0RMpgxFShsGoop5gWAMhgJCqaqnk/1mKeJ6LVd9D22lS/6OCMx1VNNtBk7aJtXK0nqTSebaSYpWko0XPc+R4fGVlJbbCx2x3Ps4BwMaPj40qWhGVYHSbFl+dmMGV9NBoQ6b0sld2qDWrNPuocms+muFdfRK6XrnfL9NvBZkmfV3K4B0WZupH3wXqgImpH/JUUWshHbaJh/RQ0HS0jDVUwPo1RhbUeh06hg2FzLTnsTWGvKJ9rbHV4cqNZUdGQ0GjHRR6rQWqpv+wia3+w7ES7TMyAKHAZh1npFTyPaiaaKTFQimInMCnQsFzfP+aF18dKljS53HJSiwhHApaMPHKGBqyZy8i63L7DGq9VbBO5YamcspwIT9xR248FNopZLiIFPMB1lbL0+yx7FCWPmNHb0+NOXkhPydaSziXWHByJWFqdW5gKW6OLmf7lf4Ed3tcWdLHOCOVPE4kLb84fEJYmBld9FZmk86JbDodykkK0lzUYq1recAaMm3dLo0cVZRjCzNZMzk/vswOiJjz2CKXW4DSTLEPsM5yMhz4/M4yaBX8bjVxC5UqLdCvUCBz8zv6WVDrrQAyoQtAgILBppIAanoyxUlJoOnQoA8yULilRjBFtVjFj8ISttAgZpZgsMlglP7jTIIXE5IIDJWRkpKk8oIWcub6X524SLC1aS1oAT+hAqCDY8G8GtPsUtyGdAMfDBUqFvfuhiiu+mWqX0duzEVQty2zvHu+eZ/mUpX7HZiCWn8HRkJ3YLHq/ptCaVDrTuYGeLC1TPdstltuRuE2cwM8UNNs3/KaUbfF2gCH4ZsGNs1ge96Mwhr2Rsy0oFn2sEaaj2HlAIa6l+D5oteoHDpWQi7l16AH6fauiQQmRdtxgizUoLtL6JV6oZOEG4O+VjnsasxYrFePHZsFu81PuwQ2Q0txiraFQkuBQa3rOl03NB3EbVnBKWFoIdWD7KZqAVtB3yUNsDiwXKk8HRMnmDUaaCweKsV0FxqN1F3A1AC5i6hRcPeZWsfUbCgs28MG1qoyiK8SzcVOE/XyrnKaCS6hTbyh0FYZmvXBMnLtcCc7SMcu0ryC7+KWWYDQWhdrFpWFQQxN02bql5iOChfmV0PBD/zaikd2k1lFmZmYGgwFbhAtt9ouAWm8JiU5jgEqCxkBSRoDJVVnEtDgeYEVOVGCoTC33DklK4kChcUl+N3iqhuouRb5r0ux+M6L6Uxb5WFPRn4MTkZeaI9EwCBg2D7wmb0d050d748S2tljBFq6aq/GMDRidFlk0XnMRbFFVHYgdts/1Pby5leU2ZfuOPfo904srcdue6Gtq+Z+fONz4OD2DXlXB3t9zXU5OHT5zx72hgPdnAiSQAIASEJiDnz88t9O9iOdPQ+K9z3d/asvHOi5dePcwreEzz/47E9Pg+5tokhkT1vnyUjb2cfbfva1rtfPl8bOfGxmffOZgw/ff3fn0de6Bfkn3zR+9NLS9L9uPA+/PsMS6Tnj9JuffuKV0ePmYS193/ji/k+e3jx1T8/cW4X17r57Lv75RfL966Tv3Hv3M0v9qc/+0OjObFw49OjmqzPfyL+xv/hU4fWz333xiSNf+m3650+1/fv036Y631zP/vqfZ3JLfzn1x9Hh52+5+OShG7yHpLdB39kvz3z0jbbrTn71rh888NoX73rgw+sH/npQfXbfJ6Z/02M+9/zvBhb3uQ8nby7OvnUbiaXhxOObg9q9h3+x+YHHPnVT7uLhE2cM23059dCFfcwjT8Mbn8z0/OntX6L09Lljr5z/x4Xcudlbf4+UD367D88J3elXqzH9D6sXoeq5IAAA', 'Content-Length': '181'} 
+ body=b'{"lineItems": [{"lineItemId": "6012345678901234567", "quantity": 1}], "shippedDate": "2024-08-01T14:30:00.000Z", "shippingCarrierCode": "UPS", "trackingNumber": "1Z999AA1234567890"}' 
+ </msg>
+<msg time="2025-08-07T00:15:30.544950" level="INFO">POST Response : url=https://api.sandbox.ebay.com/sell/fulfillment/v1/order/6012345678901!2876543210987/shipping_fulfillment 
+ status=400, reason=Bad Request 
+ headers={'rlogid': 't6pithqauq%60fiiw%28ufmadh%7B%3F%3Ctowiugvpd%60jhs.vgiggi%7F.01d73ece%3Ce*d7v2g-19881e20ab3-0x232e', 'x-ebay-client-tls-version': 'TLSv1.3', 'content-type': 'application/json', 'content-length': '210', 'date': 'Thu, 07 Aug 2025 00:15:31 GMT', 'x-envoy-upstream-service-time': '62', 'server': 'ebay-proxy-server', 'strict-transport-security': 'max-age=31536000', 'x-ebay-pop-id': 'UFES2-LVSAZ01-apisandbox'} 
+ body={"errors":[{"errorId":32100,"domain":"API_FULFILLMENT","category":"REQUEST","message":"Invalid Order Id: '6012345678901!2876543210987'","parameters":[{"name":"orderId","value":"6012345678901!2876543210987"}]}]} 
+ </msg>
+<msg time="2025-08-07T00:15:30.545287" level="INFO">C:\Users\lamin\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.sandbox.ebay.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-07T00:15:30.546455" level="FAIL">InvalidExpectedStatus: 201</msg>
+<var>${response}</var>
+<arg>ebay</arg>
+<arg>${endpoint}</arg>
+<arg>json=${CREATE_FULFILLMENT_VALID_PAYLOAD}</arg>
+<arg>headers=${HEADERS}</arg>
+<arg>expected_status=${HTTP_CREATED}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-08-07T00:15:28.996655" elapsed="1.628172">InvalidExpectedStatus: 201</status>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>POST ${endpoint} - Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-08-07T00:15:30.625055" elapsed="0.000035"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="NOT RUN" start="2025-08-07T00:15:30.625158" elapsed="0.000032"/>
+</return>
+<var>${response}</var>
+<arg>${VALID_ORDER_ID}</arg>
+<status status="FAIL" start="2025-08-07T00:15:28.994059" elapsed="1.631382">InvalidExpectedStatus: 201</status>
+</kw>
+<kw name="Validate Successful Response" owner="lab3">
+<arg>${response}</arg>
+<arg>${HTTP_CREATED}</arg>
+<status status="NOT RUN" start="2025-08-07T00:15:30.626966" elapsed="0.000093"/>
+</kw>
+<kw name="Validate Location Header" owner="lab3">
+<arg>${response}</arg>
+<status status="NOT RUN" start="2025-08-07T00:15:30.628006" elapsed="0.000085"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>TC_3001 PASSED: Fulfillment créé avec succès</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-08-07T00:15:30.629198" elapsed="0.000078"/>
+</kw>
+<doc>Scénario passant : Teste la création d'un fulfillment avec des données valides</doc>
+<tag>create</tag>
+<tag>positive</tag>
+<tag>TC_3001</tag>
+<status status="FAIL" start="2025-08-07T00:15:28.991413" elapsed="1.639253">InvalidExpectedStatus: 201</status>
+</test>
+<test id="s1-t2" name="TC_3002_Create_Shipping_Fulfillment_Invalid_Payload" line="19">
+<kw name="Create Shipping Fulfillment With Invalid Payload" owner="lab3">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Creating shipping fulfillment with invalid payload for order: ${order_id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-07T00:15:30.645413" elapsed="0.000556"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-08-07T00:15:30.646866" level="INFO">${endpoint} = /order/6012345678901!2876543210987/shipping_fulfillment</msg>
+<var>${endpoint}</var>
+<arg>${CREATE_FULFILLMENT_ENDPOINT}</arg>
+<arg>{orderId}</arg>
+<arg>${order_id}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-08-07T00:15:30.646312" elapsed="0.000602"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-08-07T00:15:31.075798" level="INFO">POST Request : url=https://api.sandbox.ebay.com/sell/fulfillment/v1/order/6012345678901!2876543210987/shipping_fulfillment 
+ path_url=/sell/fulfillment/v1/order/6012345678901!2876543210987/shipping_fulfillment 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer v^1.1#i^1#f^0#r^0#I^3#p^3#t^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', 'Content-Length': '178'} 
+ body=b'{"lineItems": [{"lineItemId": "invalid-order-id", "quantity": 1}], "shippedDate": "2024-08-01T14:30:00.000Z", "shippingCarrierCode": "UPS", "trackingNumber": "1Z999AA1234567890"}' 
+ </msg>
+<msg time="2025-08-07T00:15:31.076547" level="INFO">POST Response : url=https://api.sandbox.ebay.com/sell/fulfillment/v1/order/6012345678901!2876543210987/shipping_fulfillment 
+ status=400, reason=Bad Request 
+ headers={'rlogid': 't6pithqauq%60fiiw%28ufmadh%7B%3F%3Ctowiugvpd%60jhs.vgiggi%7F.01d73ece%3Ce*gu4j4-19881e20c82-0x2339', 'x-ebay-client-tls-version': 'TLSv1.3', 'content-type': 'application/json', 'content-length': '210', 'date': 'Thu, 07 Aug 2025 00:15:32 GMT', 'x-envoy-upstream-service-time': '50', 'server': 'ebay-proxy-server', 'strict-transport-security': 'max-age=31536000', 'x-ebay-pop-id': 'UFES2-LVSAZ01-apisandbox'} 
+ body={"errors":[{"errorId":32100,"domain":"API_FULFILLMENT","category":"REQUEST","message":"Invalid Order Id: '6012345678901!2876543210987'","parameters":[{"name":"orderId","value":"6012345678901!2876543210987"}]}]} 
+ </msg>
+<msg time="2025-08-07T00:15:31.076968" level="INFO">C:\Users\lamin\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.sandbox.ebay.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-07T00:15:31.079505" level="FAIL">InvalidExpectedStatus: 400</msg>
+<var>${response}</var>
+<arg>ebay</arg>
+<arg>${endpoint}</arg>
+<arg>json=${CREATE_FULFILLMENT_INVALID_PAYLOAD}</arg>
+<arg>headers=${HEADERS}</arg>
+<arg>expected_status=${HTTP_BAD_REQUEST}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-08-07T00:15:30.647184" elapsed="0.434811">InvalidExpectedStatus: 400</status>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>POST ${endpoint} - Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-08-07T00:15:31.082570" elapsed="0.000093"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="NOT RUN" start="2025-08-07T00:15:31.082836" elapsed="0.000075"/>
+</return>
+<var>${response}</var>
+<arg>${VALID_ORDER_ID}</arg>
+<status status="FAIL" start="2025-08-07T00:15:30.644663" elapsed="0.438595">InvalidExpectedStatus: 400</status>
+</kw>
+<kw name="Validate Error Response" owner="lab3">
+<arg>${response}</arg>
+<arg>${HTTP_BAD_REQUEST}</arg>
+<status status="NOT RUN" start="2025-08-07T00:15:31.084212" elapsed="0.000099"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>TC_3002 PASSED: Erreur 400 retournée pour payload invalide</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-08-07T00:15:31.084977" elapsed="0.000082"/>
+</kw>
+<doc>Scénario non passant : Teste la création d'un fulfillment avec un payload invalide</doc>
+<tag>create</tag>
+<tag>negative</tag>
+<tag>TC_3002</tag>
+<status status="FAIL" start="2025-08-07T00:15:30.636182" elapsed="0.449641">InvalidExpectedStatus: 400</status>
+</test>
+<test id="s1-t3" name="TC_3003_Get_Shipping_Fulfillment_Valid_IDs" line="28">
+<kw name="Get Shipping Fulfillment With Valid IDs" owner="lab3">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Getting shipping fulfillment for order: ${order_id}, fulfillment: ${fulfillment_id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-07T00:15:31.101048" elapsed="0.001421"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-08-07T00:15:31.105557" level="INFO">${endpoint} = /order/6012345678901!2876543210987/shipping_fulfillment/{fulfillmentId}</msg>
+<var>${endpoint}</var>
+<arg>${GET_FULFILLMENT_ENDPOINT}</arg>
+<arg>{orderId}</arg>
+<arg>${order_id}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-08-07T00:15:31.103162" elapsed="0.002642"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-08-07T00:15:31.107744" level="INFO">${endpoint} = /order/6012345678901!2876543210987/shipping_fulfillment/9405509699937003457459</msg>
+<var>${endpoint}</var>
+<arg>${endpoint}</arg>
+<arg>{fulfillmentId}</arg>
+<arg>${fulfillment_id}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-08-07T00:15:31.106619" elapsed="0.001290"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-08-07T00:15:31.420191" level="INFO">GET Request : url=https://api.sandbox.ebay.com/sell/fulfillment/v1/order/6012345678901!2876543210987/shipping_fulfillment/9405509699937003457459 
+ path_url=/sell/fulfillment/v1/order/6012345678901!2876543210987/shipping_fulfillment/9405509699937003457459 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer v^1.1#i^1#f^0#r^0#I^3#p^3#t^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'} 
+ body=None 
+ </msg>
+<msg time="2025-08-07T00:15:31.420575" level="INFO">GET Response : url=https://api.sandbox.ebay.com/sell/fulfillment/v1/order/6012345678901!2876543210987/shipping_fulfillment/9405509699937003457459 
+ status=400, reason=Bad Request 
+ headers={'rlogid': 't6pithqauq%60fiiw%28ufmadh%7B%3F%3Ctowiugvpd%60jhs.vgiggi%7F.01d73ece%3Ce*ri%7Ecw-19881e20e25-0x233e', 'x-ebay-client-tls-version': 'TLSv1.3', 'x-content-type-options': 'nosniff', 'x-xss-protection': '0', 'cache-control': 'no-cache, no-store, max-age=0, must-revalidate', 'pragma': 'no-cache', 'expires': '0', 'x-frame-options': 'DENY', 'content-type': 'application/json', 'content-length': '210', 'date': 'Thu, 07 Aug 2025 00:15:32 GMT', 'x-envoy-upstream-service-time': '59', 'server': 'ebay-proxy-server', 'strict-transport-security': 'max-age=31536000', 'x-ebay-pop-id': 'UFES2-LVSAZ01-apisandbox'} 
+ body={"errors":[{"errorId":32100,"domain":"API_FULFILLMENT","category":"REQUEST","message":"Invalid Order Id: '6012345678901!2876543210987'","parameters":[{"name":"orderId","value":"6012345678901!2876543210987"}]}]} 
+ </msg>
+<msg time="2025-08-07T00:15:31.421768" level="INFO">C:\Users\lamin\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.sandbox.ebay.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-07T00:15:31.426557" level="FAIL">InvalidExpectedStatus: 200</msg>
+<var>${response}</var>
+<arg>ebay</arg>
+<arg>${endpoint}</arg>
+<arg>headers=${HEADERS}</arg>
+<arg>expected_status=${HTTP_OK}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-08-07T00:15:31.108593" elapsed="0.322123">InvalidExpectedStatus: 200</status>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>GET ${endpoint} - Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-08-07T00:15:31.431298" elapsed="0.000198"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="NOT RUN" start="2025-08-07T00:15:31.431773" elapsed="0.000110"/>
+</return>
+<var>${response}</var>
+<arg>${VALID_ORDER_ID}</arg>
+<arg>${VALID_FULFILLMENT_ID}</arg>
+<status status="FAIL" start="2025-08-07T00:15:31.099829" elapsed="0.332613">InvalidExpectedStatus: 200</status>
+</kw>
+<kw name="Validate Successful Response" owner="lab3">
+<arg>${response}</arg>
+<arg>${HTTP_OK}</arg>
+<status status="NOT RUN" start="2025-08-07T00:15:31.434039" elapsed="0.000186"/>
+</kw>
+<kw name="Validate Fulfillment Response Structure" owner="lab3">
+<arg>${response}</arg>
+<status status="NOT RUN" start="2025-08-07T00:15:31.435842" elapsed="0.000160"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>TC_3003 PASSED: Fulfillment récupéré avec succès</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-08-07T00:15:31.436886" elapsed="0.000104"/>
+</kw>
+<doc>Scénario passant : Teste la récupération d'un fulfillment avec des IDs valides</doc>
+<tag>get</tag>
+<tag>positive</tag>
+<tag>TC_3003</tag>
+<status status="FAIL" start="2025-08-07T00:15:31.096342" elapsed="0.342706">InvalidExpectedStatus: 200</status>
+</test>
+<test id="s1-t4" name="TC_3004_Get_Shipping_Fulfillment_Invalid_Order_ID" line="36">
+<kw name="Get Shipping Fulfillment With Invalid Order ID" owner="lab3">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Getting shipping fulfillment with invalid order ID: ${order_id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-07T00:15:31.453622" elapsed="0.009386"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-08-07T00:15:31.464958" level="INFO">${endpoint} = /order/invalid-order-id/shipping_fulfillment/{fulfillmentId}</msg>
+<var>${endpoint}</var>
+<arg>${GET_FULFILLMENT_ENDPOINT}</arg>
+<arg>{orderId}</arg>
+<arg>${order_id}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-08-07T00:15:31.464045" elapsed="0.001042"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-08-07T00:15:31.466383" level="INFO">${endpoint} = /order/invalid-order-id/shipping_fulfillment/9405509699937003457459</msg>
+<var>${endpoint}</var>
+<arg>${endpoint}</arg>
+<arg>{fulfillmentId}</arg>
+<arg>${fulfillment_id}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-08-07T00:15:31.465573" elapsed="0.000923"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-08-07T00:15:31.995742" level="INFO">GET Request : url=https://api.sandbox.ebay.com/sell/fulfillment/v1/order/invalid-order-id/shipping_fulfillment/9405509699937003457459 
+ path_url=/sell/fulfillment/v1/order/invalid-order-id/shipping_fulfillment/9405509699937003457459 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer v^1.1#i^1#f^0#r^0#I^3#p^3#t^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'} 
+ body=None 
+ </msg>
+<msg time="2025-08-07T00:15:31.996119" level="INFO">GET Response : url=https://api.sandbox.ebay.com/sell/fulfillment/v1/order/invalid-order-id/shipping_fulfillment/9405509699937003457459 
+ status=400, reason=Bad Request 
+ headers={'rlogid': 't6pithqauq%60fiiw%28ufmadh%7B%3F%3Ctowiugvpd%60jhs.vgiggi%7F.01d73ece%3Ce*ri%7Ecw-19881e20f8e-0x2335', 'x-ebay-client-tls-version': 'TLSv1.3', 'x-content-type-options': 'nosniff', 'x-xss-protection': '0', 'cache-control': 'no-cache, no-store, max-age=0, must-revalidate', 'pragma': 'no-cache', 'expires': '0', 'x-frame-options': 'DENY', 'content-type': 'application/json', 'content-length': '188', 'date': 'Thu, 07 Aug 2025 00:15:32 GMT', 'x-envoy-upstream-service-time': '50', 'server': 'ebay-proxy-server', 'strict-transport-security': 'max-age=31536000', 'x-ebay-pop-id': 'UFES2-LVSAZ01-apisandbox'} 
+ body={"errors":[{"errorId":32100,"domain":"API_FULFILLMENT","category":"REQUEST","message":"Invalid Order Id: 'invalid-order-id'","parameters":[{"name":"orderId","value":"invalid-order-id"}]}]} 
+ </msg>
+<msg time="2025-08-07T00:15:31.996360" level="INFO">C:\Users\lamin\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.sandbox.ebay.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-07T00:15:31.997306" level="FAIL">InvalidExpectedStatus: 404</msg>
+<var>${response}</var>
+<arg>ebay</arg>
+<arg>${endpoint}</arg>
+<arg>headers=${HEADERS}</arg>
+<arg>expected_status=${HTTP_NOT_FOUND}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-08-07T00:15:31.466944" elapsed="0.532872">InvalidExpectedStatus: 404</status>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>GET ${endpoint} - Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-08-07T00:15:32.000390" elapsed="0.000100"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="NOT RUN" start="2025-08-07T00:15:32.000669" elapsed="0.000105"/>
+</return>
+<var>${response}</var>
+<arg>${INVALID_ORDER_ID}</arg>
+<arg>${VALID_FULFILLMENT_ID}</arg>
+<status status="FAIL" start="2025-08-07T00:15:31.451298" elapsed="0.549848">InvalidExpectedStatus: 404</status>
+</kw>
+<kw name="Validate Error Response" owner="lab3">
+<arg>${response}</arg>
+<arg>${HTTP_NOT_FOUND}</arg>
+<status status="NOT RUN" start="2025-08-07T00:15:32.002227" elapsed="0.000107"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>TC_3004 PASSED: Erreur 404 retournée pour Order ID invalide</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-08-07T00:15:32.003187" elapsed="0.000100"/>
+</kw>
+<doc>Scénario non passant : Teste la récupération d'un fulfillment avec un Order ID invalide</doc>
+<tag>get</tag>
+<tag>negative</tag>
+<tag>TC_3004</tag>
+<status status="FAIL" start="2025-08-07T00:15:31.446662" elapsed="0.558620">InvalidExpectedStatus: 404</status>
+</test>
+<test id="s1-t5" name="TC_3005_Get_Shipping_Fulfillments_Valid_Order_ID" line="45">
+<kw name="Get Shipping Fulfillments With Valid Order ID" owner="lab3">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Getting all shipping fulfillments for order: ${order_id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-07T00:15:32.019089" elapsed="0.001196"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-08-07T00:15:32.024315" level="INFO">${endpoint} = /order/6012345678901!2876543210987/shipping_fulfillment</msg>
+<var>${endpoint}</var>
+<arg>${GET_FULFILLMENTS_ENDPOINT}</arg>
+<arg>{orderId}</arg>
+<arg>${order_id}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-08-07T00:15:32.022219" elapsed="0.002358"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-08-07T00:15:32.403237" level="INFO">GET Request : url=https://api.sandbox.ebay.com/sell/fulfillment/v1/order/6012345678901!2876543210987/shipping_fulfillment 
+ path_url=/sell/fulfillment/v1/order/6012345678901!2876543210987/shipping_fulfillment 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer v^1.1#i^1#f^0#r^0#I^3#p^3#t^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'} 
+ body=None 
+ </msg>
+<msg time="2025-08-07T00:15:32.403446" level="INFO">GET Response : url=https://api.sandbox.ebay.com/sell/fulfillment/v1/order/6012345678901!2876543210987/shipping_fulfillment 
+ status=400, reason=Bad Request 
+ headers={'rlogid': 't6pithqauq%60fiiw%28ufmadh%7B%3F%3Ctowiugvpd%60jhs.vgiggi%7F.01d73ece%3Ce*ri%7Ecw-19881e211bc-0x235a', 'x-ebay-client-tls-version': 'TLSv1.3', 'x-content-type-options': 'nosniff', 'x-xss-protection': '0', 'cache-control': 'no-cache, no-store, max-age=0, must-revalidate', 'pragma': 'no-cache', 'expires': '0', 'x-frame-options': 'DENY', 'content-type': 'application/json', 'content-length': '210', 'date': 'Thu, 07 Aug 2025 00:15:33 GMT', 'x-envoy-upstream-service-time': '54', 'server': 'ebay-proxy-server', 'strict-transport-security': 'max-age=31536000', 'x-ebay-pop-id': 'UFES2-LVSAZ01-apisandbox'} 
+ body={"errors":[{"errorId":32100,"domain":"API_FULFILLMENT","category":"REQUEST","message":"Invalid Order Id: '6012345678901!2876543210987'","parameters":[{"name":"orderId","value":"6012345678901!2876543210987"}]}]} 
+ </msg>
+<msg time="2025-08-07T00:15:32.403578" level="INFO">C:\Users\lamin\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.sandbox.ebay.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-07T00:15:32.407227" level="FAIL">InvalidExpectedStatus: 200</msg>
+<var>${response}</var>
+<arg>ebay</arg>
+<arg>${endpoint}</arg>
+<arg>headers=${HEADERS}</arg>
+<arg>expected_status=${HTTP_OK}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-08-07T00:15:32.026139" elapsed="0.382429">InvalidExpectedStatus: 200</status>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>GET ${endpoint} - Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-08-07T00:15:32.408904" elapsed="0.000077"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="NOT RUN" start="2025-08-07T00:15:32.409092" elapsed="0.000042"/>
+</return>
+<var>${response}</var>
+<arg>${VALID_ORDER_ID}</arg>
+<status status="FAIL" start="2025-08-07T00:15:32.017923" elapsed="0.391438">InvalidExpectedStatus: 200</status>
+</kw>
+<kw name="Validate Successful Response" owner="lab3">
+<arg>${response}</arg>
+<arg>${HTTP_OK}</arg>
+<status status="NOT RUN" start="2025-08-07T00:15:32.410696" elapsed="0.000059"/>
+</kw>
+<kw name="Validate Fulfillments Response Structure" owner="lab3">
+<arg>${response}</arg>
+<status status="NOT RUN" start="2025-08-07T00:15:32.412353" elapsed="0.000072"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>TC_3005 PASSED: Liste des fulfillments récupérée avec succès</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-08-07T00:15:32.412864" elapsed="0.000045"/>
+</kw>
+<doc>Scénario passant : Teste la récupération de tous les fulfillments avec un Order ID valide</doc>
+<tag>getall</tag>
+<tag>positive</tag>
+<tag>TC_3005</tag>
+<status status="FAIL" start="2025-08-07T00:15:32.013399" elapsed="0.399847">InvalidExpectedStatus: 200</status>
+</test>
+<test id="s1-t6" name="TC_3006_Get_Shipping_Fulfillments_Invalid_Order_ID" line="53">
+<kw name="Get Shipping Fulfillments With Invalid Order ID" owner="lab3">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Getting shipping fulfillments with invalid order ID: ${order_id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-07T00:15:32.416963" elapsed="0.000489"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-08-07T00:15:32.418241" level="INFO">${endpoint} = /order/invalid-order-id/shipping_fulfillment</msg>
+<var>${endpoint}</var>
+<arg>${GET_FULFILLMENTS_ENDPOINT}</arg>
+<arg>{orderId}</arg>
+<arg>${order_id}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-08-07T00:15:32.417724" elapsed="0.000593"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-08-07T00:15:33.019430" level="INFO">GET Request : url=https://api.sandbox.ebay.com/sell/fulfillment/v1/order/invalid-order-id/shipping_fulfillment 
+ path_url=/sell/fulfillment/v1/order/invalid-order-id/shipping_fulfillment 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer v^1.1#i^1#f^0#r^0#I^3#p^3#t^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'} 
+ body=None 
+ </msg>
+<msg time="2025-08-07T00:15:33.019969" level="INFO">GET Response : url=https://api.sandbox.ebay.com/sell/fulfillment/v1/order/invalid-order-id/shipping_fulfillment 
+ status=400, reason=Bad Request 
+ headers={'rlogid': 't6pithqauq%60fiiw%28ufmadh%7B%3F%3Ctowiugvpd%60jhs.vgiggi%7F.01d73ece%3Ce*d7v2g-19881e21350-0x2341', 'x-ebay-client-tls-version': 'TLSv1.3', 'x-content-type-options': 'nosniff', 'x-xss-protection': '0', 'cache-control': 'no-cache, no-store, max-age=0, must-revalidate', 'pragma': 'no-cache', 'expires': '0', 'x-frame-options': 'DENY', 'content-type': 'application/json', 'content-length': '188', 'date': 'Thu, 07 Aug 2025 00:15:33 GMT', 'x-envoy-upstream-service-time': '42', 'server': 'ebay-proxy-server', 'strict-transport-security': 'max-age=31536000', 'x-ebay-pop-id': 'UFES2-LVSAZ01-apisandbox'} 
+ body={"errors":[{"errorId":32100,"domain":"API_FULFILLMENT","category":"REQUEST","message":"Invalid Order Id: 'invalid-order-id'","parameters":[{"name":"orderId","value":"invalid-order-id"}]}]} 
+ </msg>
+<msg time="2025-08-07T00:15:33.020218" level="INFO">C:\Users\lamin\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.sandbox.ebay.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-07T00:15:33.024920" level="FAIL">InvalidExpectedStatus: 404</msg>
+<var>${response}</var>
+<arg>ebay</arg>
+<arg>${endpoint}</arg>
+<arg>headers=${HEADERS}</arg>
+<arg>expected_status=${HTTP_NOT_FOUND}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-08-07T00:15:32.418580" elapsed="0.609415">InvalidExpectedStatus: 404</status>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>GET ${endpoint} - Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-08-07T00:15:33.028627" elapsed="0.000101"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="NOT RUN" start="2025-08-07T00:15:33.028906" elapsed="0.000065"/>
+</return>
+<var>${response}</var>
+<arg>${INVALID_ORDER_ID}</arg>
+<status status="FAIL" start="2025-08-07T00:15:32.416372" elapsed="0.612949">InvalidExpectedStatus: 404</status>
+</kw>
+<kw name="Validate Error Response" owner="lab3">
+<arg>${response}</arg>
+<arg>${HTTP_NOT_FOUND}</arg>
+<status status="NOT RUN" start="2025-08-07T00:15:33.030532" elapsed="0.000108"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>TC_3006 PASSED: Erreur 404 retournée pour Order ID invalide</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-08-07T00:15:33.031495" elapsed="0.000100"/>
+</kw>
+<doc>Scénario non passant : Teste la récupération de tous les fulfillments avec un Order ID invalide</doc>
+<tag>getall</tag>
+<tag>negative</tag>
+<tag>TC_3006</tag>
+<status status="FAIL" start="2025-08-07T00:15:32.414690" elapsed="0.617829">InvalidExpectedStatus: 404</status>
+</test>
+<kw name="Delete All Sessions" owner="RequestsLibrary" type="TEARDOWN">
+<msg time="2025-08-07T00:15:33.037120" level="INFO">Deleting All Sessions</msg>
+<doc>Removes all the session objects</doc>
+<status status="PASS" start="2025-08-07T00:15:33.036668" elapsed="0.001669"/>
+</kw>
+<status status="FAIL" start="2025-08-07T00:15:27.959427" elapsed="5.079198"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="6" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="2" skip="0">create</stat>
+<stat pass="0" fail="2" skip="0">get</stat>
+<stat pass="0" fail="2" skip="0">getall</stat>
+<stat pass="0" fail="3" skip="0">negative</stat>
+<stat pass="0" fail="3" skip="0">positive</stat>
+<stat pass="0" fail="1" skip="0">TC_3001</stat>
+<stat pass="0" fail="1" skip="0">TC_3002</stat>
+<stat pass="0" fail="1" skip="0">TC_3003</stat>
+<stat pass="0" fail="1" skip="0">TC_3004</stat>
+<stat pass="0" fail="1" skip="0">TC_3005</stat>
+<stat pass="0" fail="1" skip="0">TC_3006</stat>
+</tag>
+<suite>
+<stat name="Lab3" id="s1" pass="0" fail="6" skip="0">Lab3</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
