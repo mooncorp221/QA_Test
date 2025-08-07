@@ -47,7 +47,7 @@ pip install robotframework-seleniumlibrary
 - **TC_1004** : ✅ Case "Se souvenir de moi" persiste l'email (Test Fonctionnel)
 - **TC_1005** : ✅ Déconnexion utilisateur (Test Fonctionnel)
 
-### 👥 GESTION CLIENTS (3 tests)
+### GESTION CLIENTS (3 tests)
 
 - **TC_1006** : ✅ Page clients affiche plusieurs enregistrements (Smoke Test)
 - **TC_1007** : ✅ Ajout de nouveau client (Smoke Test)
