@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-08-04T15:39:20.083900" rpa="false" schemaversion="5">
+<suite id="s1" name="Lab1" source="c:\Users\bmd tech\Desktop\qatest-flutter\Lab1">
+<suite id="s1-s1" name="Testcases" source="c:\Users\bmd tech\Desktop\qatest-flutter\Lab1\testcases">
+<suite id="s1-s1-s1" name="Mongo Testcases" source="c:\Users\bmd tech\Desktop\qatest-flutter\Lab1\testcases\mongo_testcases.robot">
+<kw name="Create Product In MongoDB" owner="mongo_keywords" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-04T15:39:21.990441" level="INFO">${product} = {'title': 'Yassa', 'price': '1500', 'description': 'Plat traditionnel sénégalais', 'image': 'http://example.com/yassa.jpg', 'category': 'volaille'}</msg>
+<var>${product}</var>
+<arg>title=Yassa</arg>
+<arg>price=1500</arg>
+<arg>description=Plat traditionnel sénégalais</arg>
+<arg>image=http://example.com/yassa.jpg</arg>
+<arg>category=volaille</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-04T15:39:21.987604" elapsed="0.003692"/>
+</kw>
+<kw name="Create Product" owner="mongo_helper">
+<msg time="2025-08-04T15:39:21.994890" level="INFO">[ERREUR PRODUIT] Le champ 'price' doit être un nombre.</msg>
+<msg time="2025-08-04T15:39:21.996128" level="FAIL">ValueError: Le champ 'price' doit être un nombre.</msg>
+<var>${inserted_id}</var>
+<arg>${product}</arg>
+<status status="FAIL" start="2025-08-04T15:39:21.992410" elapsed="0.023407">ValueError: Le champ 'price' doit être un nombre.</status>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${inserted_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-08-04T15:39:22.016940" elapsed="0.000631"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<arg>${inserted_id}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="NOT RUN" start="2025-08-04T15:39:22.018254" elapsed="0.000604"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Produit inséré avec succès : ${inserted_id}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-04T15:39:22.019498" elapsed="0.000479"/>
+</kw>
+<status status="FAIL" start="2025-08-04T15:39:21.981343" elapsed="0.039449">ValueError: Le champ 'price' doit être un nombre.</status>
+</kw>
+<test id="s1-s1-s1-t1" name="Create Product - prix invalide" line="33">
+<status status="FAIL" start="2025-08-04T15:39:22.021365" elapsed="0.014081">Parent suite setup failed:
+ValueError: Le champ 'price' doit être un nombre.</status>
+</test>
+<status status="FAIL" start="2025-08-04T15:39:20.233684" elapsed="1.833526">Suite setup failed:
+ValueError: Le champ 'price' doit être un nombre.</status>
+</suite>
+<status status="FAIL" start="2025-08-04T15:39:20.218348" elapsed="1.883297"/>
+</suite>
+<status status="FAIL" start="2025-08-04T15:39:20.106636" elapsed="2.026680"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Lab1" id="s1" pass="0" fail="1" skip="0">Lab1</stat>
+<stat name="Testcases" id="s1-s1" pass="0" fail="1" skip="0">Lab1.Testcases</stat>
+<stat name="Mongo Testcases" id="s1-s1-s1" pass="0" fail="1" skip="0">Lab1.Testcases.Mongo Testcases</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
