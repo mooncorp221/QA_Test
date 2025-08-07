@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-08-04T20:16:07.039621" rpa="false" schemaversion="5">
+<suite id="s1" name="Flutter Driver" source="c:\Users\bmd tech\Desktop\flutter_driver">
+<suite id="s1-s1" name="Testcases" source="c:\Users\bmd tech\Desktop\flutter_driver\testcases">
+<suite id="s1-s1-s1" name="Looma Test" source="c:\Users\bmd tech\Desktop\flutter_driver\testcases\looma_test.robot">
+<kw name="Run Keyword" owner="BuiltIn" type="SETUP">
+<kw name="Open App" owner="looma_keywords">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>${REMOTE_URL}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>platformVersion=${PLATFORM_VERSION}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>appPackage=${APP_PACKAGE}</arg>
+<arg>appActivity=${APP_ACTIVITY}</arg>
+<arg>automationName=${AUTOMATION_NAME}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.1/cli/args/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" start="2025-08-04T20:16:08.227353" elapsed="30.877417"/>
+</kw>
+<doc>Open the app with the specified remote URL and capabilities.</doc>
+<status status="PASS" start="2025-08-04T20:16:08.226529" elapsed="30.879167"/>
+</kw>
+<arg>Open App</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2025-08-04T20:16:08.225184" elapsed="30.881043"/>
+</kw>
+<test id="s1-s1-s1-t1" name="Ouvrir l'application et se connecter" line="12">
+<kw name="Saisir username" owner="looma_keywords">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<arg>${USERNAME}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-08-04T20:16:39.148448" elapsed="2.387277"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2025-08-04T20:16:41.543482" level="INFO">Typing text 'kevinryan' into text field 'android=new UiSelector().className("android.widget.EditText").instance(0)'</msg>
+<arg>${USERNAME}</arg>
+<arg>kevinryan</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2025-08-04T20:16:41.536679" elapsed="0.618243"/>
+</kw>
+<doc>Enter the username in the login form.</doc>
+<status status="PASS" start="2025-08-04T20:16:39.146898" elapsed="3.008747"/>
+</kw>
+<kw name="Saisir password" owner="looma_keywords">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<arg>${PASSWORD}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-08-04T20:16:42.187783" elapsed="0.310867"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2025-08-04T20:16:42.506789" level="INFO">Typing text 'kev02937@' into text field 'android=new UiSelector().className("android.widget.EditText").instance(1)'</msg>
+<arg>${PASSWORD}</arg>
+<arg>kev02937@</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2025-08-04T20:16:42.499465" elapsed="0.399032"/>
+</kw>
+<doc>Enter the password in the login form.</doc>
+<status status="PASS" start="2025-08-04T20:16:42.186147" elapsed="0.713036"/>
+</kw>
+<kw name="Se connecter" owner="looma_keywords">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-08-04T20:16:42.903811" elapsed="0.816730"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-08-04T20:16:43.728183" level="INFO">Clicking element 'accessibility_id=Se connecter'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-08-04T20:16:43.721349" elapsed="1.336620"/>
+</kw>
+<doc>Click the login button to submit the form.</doc>
+<status status="PASS" start="2025-08-04T20:16:42.902276" elapsed="2.156440"/>
+</kw>
+<tag>"init"</tag>
+<status status="PASS" start="2025-08-04T20:16:39.106769" elapsed="5.975107"/>
+</test>
+<status status="PASS" start="2025-08-04T20:16:07.166340" elapsed="38.609524"/>
+</suite>
+<status status="PASS" start="2025-08-04T20:16:07.149611" elapsed="38.855833"/>
+</suite>
+<status status="PASS" start="2025-08-04T20:16:07.056842" elapsed="39.297804"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">"init"</stat>
+</tag>
+<suite>
+<stat name="Flutter Driver" id="s1" pass="1" fail="0" skip="0">Flutter Driver</stat>
+<stat name="Testcases" id="s1-s1" pass="1" fail="0" skip="0">Flutter Driver.Testcases</stat>
+<stat name="Looma Test" id="s1-s1-s1" pass="1" fail="0" skip="0">Flutter Driver.Testcases.Looma Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
