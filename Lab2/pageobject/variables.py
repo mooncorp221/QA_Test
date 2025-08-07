@@ -1,7 +1,7 @@
 URL=    "https://automationplayground.com/crm/index.html"
 BROWSER=    "chrome"
-TIMEOUT=    3
-SPEED=    0.5
+TIMEOUT=    2
+SPEED=    0.1
 
 VALID_EMAIL=    "admin@crmapp.com"
 VALID_PASSWORD=    "password123"
