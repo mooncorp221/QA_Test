@@ -9,12 +9,14 @@ Open App
     [Documentation]    Open the app with the specified remote URL and capabilities.
     Open Application    ${REMOTE_URL}    platformName=${PLATFORM_NAME}    platformVersion=${PLATFORM_VERSION}    deviceName=${DEVICE_NAME}    appPackage=${APP_PACKAGE}    appActivity=${APP_ACTIVITY}    automationName=${AUTOMATION_NAME}
 Saisir username
-    Input Text    ${USERNAME}    testuser
+    [Arguments]    ${username}
     Wait Until Element Is Visible    ${USERNAME}
+    Input Text    ${USERNAME}    ${username}
 
 Saisir password
-    Input Text    ${PASSWORD}    testpass
+    [Arguments]    ${password}
     Wait Until Element Is Visible    ${PASSWORD}
+    Input Text    ${PASSWORD}    ${password}
 
 
 Se connecter
