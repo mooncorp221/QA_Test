@@ -1,6 +1,5 @@
 from pymongo import MongoClient
-from bson import ObjectId
-
+from bson import ObjectId, errors as bson_errors
 
 def connect_to_db():
     uri = "mongodb+srv://testuser:Vj5NhYZt9iW8MAVv@mongodbatlas.xrxh67k.mongodb.net/?retryWrites=true&w=majority&appName=Mongodbatlas"
@@ -29,7 +28,6 @@ def create_product(product):
 
 
 
-from bson import ObjectId, errors as bson_errors
 
 def get_product_by_id(product_id):
     try:

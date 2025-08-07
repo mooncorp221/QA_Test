@@ -1,26 +1,25 @@
 *** Settings ***
-Library    AppiumLibrary
-
-Variables    ../pageobject/variables.py
-Variables    ../pageobject/locator.py
-
-*** Keywords ***
-Open App
-    [Documentation]    Open the app with the specified remote URL and capabilities.
-    Open Application    ${REMOTE_URL}    platformName=${PLATFORM_NAME}    platformVersion=${PLATFORM_VERSION}    deviceName=${DEVICE_NAME}    appPackage=${APP_PACKAGE}    appActivity=${APP_ACTIVITY}    automationName=${AUTOMATION_NAME}
-Saisir username
-    [Arguments]    ${username}
-    Wait Until Element Is Visible    ${USERNAME}
-    Input Text    ${USERNAME}    ${username}
-
-Saisir password
-    [Arguments]    ${password}
-    Wait Until Element Is Visible    ${PASSWORD}
-    Input Text    ${PASSWORD}    ${password}
+Library           AppiumLibrary
 
 
-Se connecter
-    [Documentation]    Click the login button to submit the form.
-    Wait Until Element Is Visible    ${LOGIN_BUTTON}
-    Click Element    ${LOGIN_BUTTON}
-    
+Resource         ../resources/looma_keywords.robot
+
+
+Suite Setup    Run Keyword    Open App
+
+
+*** Test Cases ***
+Ouvrir l'application et se connecter
+    [Tags]     "init"
+    Saisir username
+    Saisir password
+    Se connecter
+
+Test Échec de Connexion avec identifiants invalides
+    Saisir username
+    Saisir password
+    Se connecter
+    Wait Until Page Contains Element    accessibility_id=OK
+    Page Should Contain Text    Erreur de connexion
+    Click Element    accessibility_id=OK
+    Log    L’erreur d’authentification a été correctement affichée.

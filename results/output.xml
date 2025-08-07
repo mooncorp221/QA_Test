@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-08-07T19:19:57.808924" rpa="false" schemaversion="5">
+<suite id="s1" name="Qa Test" source="c:\Users\bmd tech\Desktop\qatest-flutter\Qa_Test">
+<suite id="s1-s1" name="Lab1" source="c:\Users\bmd tech\Desktop\qatest-flutter\Qa_Test\Lab1">
+<suite id="s1-s1-s1" name="Testcases" source="c:\Users\bmd tech\Desktop\qatest-flutter\Qa_Test\Lab1\testcases">
+<suite id="s1-s1-s1-s1" name="Mongo Testcases" source="c:\Users\bmd tech\Desktop\qatest-flutter\Qa_Test\Lab1\testcases\mongo_testcases.robot">
+<kw name="Create Product In MongoDB" owner="mongo_keywords" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-07T19:19:58.713311" level="INFO">${product} = {'title': 'Yassa', 'price': '1500', 'description': 'Plat traditionnel sénégalais', 'image': 'http://example.com/yassa.jpg', 'category': 'volaille'}</msg>
+<var>${product}</var>
+<arg>title=Yassa</arg>
+<arg>price=1500</arg>
+<arg>description=Plat traditionnel sénégalais</arg>
+<arg>image=http://example.com/yassa.jpg</arg>
+<arg>category=volaille</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-07T19:19:58.712234" elapsed="0.001460"/>
+</kw>
+<kw name="Create Product" owner="mongo_helper">
+<msg time="2025-08-07T19:20:00.646593" level="INFO">${inserted_id} = 6894fc5f77df08d179cc08ff</msg>
+<var>${inserted_id}</var>
+<arg>${product}</arg>
+<status status="PASS" start="2025-08-07T19:19:58.713940" elapsed="1.933347"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-08-07T19:20:00.648524" level="INFO">${inserted_id} = 6894fc5f77df08d179cc08ff</msg>
+<arg>${inserted_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-08-07T19:20:00.647761" elapsed="0.001558"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-08-07T19:20:00.650831" level="INFO">Length is 24.</msg>
+<arg>${inserted_id}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-08-07T19:20:00.649886" elapsed="0.001324"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-07T19:20:00.652152" level="INFO">Produit inséré avec succès : 6894fc5f77df08d179cc08ff</msg>
+<arg>Produit inséré avec succès : ${inserted_id}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-07T19:20:00.651619" elapsed="0.000851"/>
+</kw>
+<status status="PASS" start="2025-08-07T19:19:58.711013" elapsed="1.941730"/>
+</kw>
+<test id="s1-s1-s1-s1-t1" name="Create Product - produit valide" line="9">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-07T19:20:00.662148" level="INFO">${product} = {'title': 'Thieboudienne', 'price': '1200', 'description': 'Plat traditionnel', 'image': 'http://example.com/thieb.jpg', 'category': 'poisson'}</msg>
+<var>${product}</var>
+<arg>title=Thieboudienne</arg>
+<arg>price=1200</arg>
+<arg>description=Plat traditionnel</arg>
+<arg>image=http://example.com/thieb.jpg</arg>
+<arg>category=poisson</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-07T19:20:00.661458" elapsed="0.000944"/>
+</kw>
+<kw name="Create Product" owner="mongo_helper">
+<msg time="2025-08-07T19:20:01.883078" level="INFO">${id} = 6894fc6077df08d179cc0901</msg>
+<var>${id}</var>
+<arg>${product}</arg>
+<status status="PASS" start="2025-08-07T19:20:00.663081" elapsed="1.220389"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-07T19:20:01.885141" level="INFO">Produit créé avec succès : 6894fc6077df08d179cc0901</msg>
+<arg>Produit créé avec succès : ${id}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-07T19:20:01.884421" elapsed="0.001239"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-08-07T19:20:01.887182" level="INFO">Length is 24.</msg>
+<arg>${id}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-08-07T19:20:01.886418" elapsed="0.001066"/>
+</kw>
+<status status="PASS" start="2025-08-07T19:20:00.652984" elapsed="1.235076"/>
+</test>
+<test id="s1-s1-s1-s1-t2" name="Create Product - intitule du produit manquant" line="20">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-07T19:20:01.902566" level="INFO">${product} = {'price': '1200', 'category': 'poisson'}</msg>
+<var>${product}</var>
+<arg>price=1200</arg>
+<arg>category=poisson</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-07T19:20:01.902065" elapsed="0.000696"/>
+</kw>
+<kw name="Run Keyword And Expect Error" owner="BuiltIn">
+<kw name="Create Product" owner="mongo_helper">
+<msg time="2025-08-07T19:20:01.904315" level="FAIL">ValueError: Champ requis manquant: title</msg>
+<arg>${product}</arg>
+<status status="FAIL" start="2025-08-07T19:20:01.903852" elapsed="0.011098">ValueError: Champ requis manquant: title</status>
+</kw>
+<arg>*title*</arg>
+<arg>Create Product</arg>
+<arg>${product}</arg>
+<doc>Runs the keyword and checks that the expected error occurred.</doc>
+<status status="PASS" start="2025-08-07T19:20:01.903292" elapsed="0.012131"/>
+</kw>
+<status status="PASS" start="2025-08-07T19:20:01.897140" elapsed="0.018864"/>
+</test>
+<test id="s1-s1-s1-s1-t3" name="Create Product - Champ price invalide" line="26">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-07T19:20:01.923222" level="INFO">${invalid_product} = {'title': 'Boulette', 'price': 'texte_invalide', 'category': 'viande'}</msg>
+<var>${invalid_product}</var>
+<arg>title=Boulette</arg>
+<arg>price=texte_invalide</arg>
+<arg>category=viande</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-07T19:20:01.922859" elapsed="0.000659"/>
+</kw>
+<kw name="Log Error From Keyword" owner="mongo_keywords">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Create Product" owner="mongo_helper">
+<msg time="2025-08-07T19:20:01.926407" level="FAIL">ValueError: Le champ 'price' doit être un nombre.</msg>
+<arg>@{args}</arg>
+<status status="FAIL" start="2025-08-07T19:20:01.926067" elapsed="0.008125">ValueError: Le champ 'price' doit être un nombre.</status>
+</kw>
+<arg>${keyword}</arg>
+<arg>@{args}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-07T19:20:01.924467" elapsed="0.009980"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Create Product" owner="mongo_helper">
+<msg time="2025-08-07T19:20:01.935604" level="FAIL">ValueError: Le champ 'price' doit être un nombre.</msg>
+<arg>@{args}</arg>
+<status status="FAIL" start="2025-08-07T19:20:01.935328" elapsed="0.004256">ValueError: Le champ 'price' doit être un nombre.</status>
+</kw>
+<msg time="2025-08-07T19:20:01.939856" level="INFO">${status} = FAIL</msg>
+<msg time="2025-08-07T19:20:01.940196" level="INFO">${message} = ValueError: Le champ 'price' doit être un nombre.</msg>
+<var>${status}</var>
+<var>${message}</var>
+<arg>${keyword}</arg>
+<arg>@{args}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-07T19:20:01.934773" elapsed="0.005594"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-07T19:20:01.941326" level="ERROR">ValueError: Le champ 'price' doit être un nombre.</msg>
+<arg>${message}</arg>
+<arg>level=ERROR</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-07T19:20:01.941056" elapsed="0.011390"/>
+</kw>
+<arg>'${status}' == 'FAIL'</arg>
+<arg>Log</arg>
+<arg>${message}</arg>
+<arg>level=ERROR</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-07T19:20:01.940587" elapsed="0.012014"/>
+</kw>
+<arg>Create Product</arg>
+<arg>${invalid_product}</arg>
+<status status="PASS" start="2025-08-07T19:20:01.923946" elapsed="0.028924"/>
+</kw>
+<status status="PASS" start="2025-08-07T19:20:01.919806" elapsed="0.033350"/>
+</test>
+<test id="s1-s1-s1-s1-t4" name="Create Product - prix invalide" line="33">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-07T19:20:01.965069" level="INFO">${product} = {'title': 'Thieb', 'price': 'invalid', 'category': 'poisson'}</msg>
+<var>${product}</var>
+<arg>title=Thieb</arg>
+<arg>price=invalid</arg>
+<arg>category=poisson</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-07T19:20:01.964731" elapsed="0.000472"/>
+</kw>
+<kw name="Run Keyword And Expect Error" owner="BuiltIn">
+<kw name="Create Product" owner="mongo_helper">
+<msg time="2025-08-07T19:20:01.966255" level="FAIL">ValueError: Le champ 'price' doit être un nombre.</msg>
+<arg>${product}</arg>
+<status status="FAIL" start="2025-08-07T19:20:01.965972" elapsed="0.004653">ValueError: Le champ 'price' doit être un nombre.</status>
+</kw>
+<arg>*price*</arg>
+<arg>Create Product</arg>
+<arg>${product}</arg>
+<doc>Runs the keyword and checks that the expected error occurred.</doc>
+<status status="PASS" start="2025-08-07T19:20:01.965683" elapsed="0.005238"/>
+</kw>
+<status status="PASS" start="2025-08-07T19:20:01.956823" elapsed="0.014397"/>
+</test>
+<test id="s1-s1-s1-s1-t5" name="Read Product - Valid ID" line="42">
+<kw name="Read Product From MongoDB" owner="mongo_keywords">
+<kw name="Get Product By Id" owner="mongo_helper">
+<msg time="2025-08-07T19:20:03.181338" level="INFO">${product} = {'_id': ObjectId('6894fc5f77df08d179cc08ff'), 'title': 'Yassa', 'price': 1500.0, 'description': 'Plat traditionnel sénégalais', 'image': 'http://example.com/yassa.jpg', 'category': 'volaille'}</msg>
+<var>${product}</var>
+<arg>${inserted_id}</arg>
+<status status="PASS" start="2025-08-07T19:20:01.983441" elapsed="1.198523"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-08-07T19:20:03.184202" level="INFO">Length is 6.</msg>
+<arg>${product}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-08-07T19:20:03.182673" elapsed="0.002546"/>
+</kw>
+<kw name="Log Dictionary" owner="Collections">
+<msg time="2025-08-07T19:20:03.187266" level="INFO">Dictionary size is 6 and it contains following items:
+_id: 6894fc5f77df08d179cc08ff
+category: volaille
+description: Plat traditionnel sénégalais
+image: http://example.com/yassa.jpg
+price: 1500.0
+title: Yassa</msg>
+<arg>${product}</arg>
+<doc>Logs the size and contents of the ``dictionary`` using given ``level``.</doc>
+<status status="PASS" start="2025-08-07T19:20:03.186155" elapsed="0.002192"/>
+</kw>
+<arg>${inserted_id}</arg>
+<status status="PASS" start="2025-08-07T19:20:01.982994" elapsed="1.205916"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-07T19:20:03.192540" level="INFO">Produit lu avec succès : 6894fc5f77df08d179cc08ff</msg>
+<arg>Produit lu avec succès : ${inserted_id}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-07T19:20:03.190754" elapsed="0.003241"/>
+</kw>
+<status status="PASS" start="2025-08-07T19:20:01.974558" elapsed="1.221196"/>
+</test>
+<test id="s1-s1-s1-s1-t6" name="Read Product - identifiant valide" line="46">
+<kw name="Get Product By Id" owner="mongo_helper">
+<msg time="2025-08-07T19:20:04.429471" level="INFO">${product} = {'_id': ObjectId('6894fc5f77df08d179cc08ff'), 'title': 'Yassa', 'price': 1500.0, 'description': 'Plat traditionnel sénégalais', 'image': 'http://example.com/yassa.jpg', 'category': 'volaille'}</msg>
+<var>${product}</var>
+<arg>${inserted_id}</arg>
+<status status="PASS" start="2025-08-07T19:20:03.211421" elapsed="1.218256"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-08-07T19:20:04.430472" level="INFO">Length is 6.</msg>
+<arg>${product}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-08-07T19:20:04.430101" elapsed="0.000707"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${product}</arg>
+<arg>title</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-08-07T19:20:04.431215" elapsed="0.000313"/>
+</kw>
+<status status="PASS" start="2025-08-07T19:20:03.205046" elapsed="1.226757"/>
+</test>
+<test id="s1-s1-s1-s1-t7" name="Read Product - Format invalide du ObjectId" line="52">
+<kw name="Run Keyword And Expect Error" owner="BuiltIn">
+<kw name="Get Product By Id" owner="mongo_helper">
+<msg time="2025-08-07T19:20:04.440282" level="FAIL">ValueError: Format d'identifiant invalide.</msg>
+<arg>${NON_OBJECTID}</arg>
+<status status="FAIL" start="2025-08-07T19:20:04.439919" elapsed="0.006054">ValueError: Format d'identifiant invalide.</status>
+</kw>
+<arg>*</arg>
+<arg>Get Product By Id</arg>
+<arg>${NON_OBJECTID}</arg>
+<doc>Runs the keyword and checks that the expected error occurred.</doc>
+<status status="PASS" start="2025-08-07T19:20:04.439454" elapsed="0.006811"/>
+</kw>
+<status status="PASS" start="2025-08-07T19:20:04.435646" elapsed="0.010962"/>
+</test>
+<test id="s1-s1-s1-s1-t8" name="Read Product - ObjectId inexistant" line="55">
+<kw name="Get Product By Id" owner="mongo_helper">
+<msg time="2025-08-07T19:20:05.686722" level="INFO">${result} = None</msg>
+<var>${result}</var>
+<arg>${INVALID_PRODUCT_ID}</arg>
+<status status="PASS" start="2025-08-07T19:20:04.453631" elapsed="1.233466"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${result} is None</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-08-07T19:20:05.687964" elapsed="0.000894"/>
+</kw>
+<status status="PASS" start="2025-08-07T19:20:04.450292" elapsed="1.239592"/>
+</test>
+<test id="s1-s1-s1-s1-t9" name="Update Product - le produit existe" line="62">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-07T19:20:05.702800" level="INFO">${data} = {'price': '3000'}</msg>
+<var>${data}</var>
+<arg>price=3000</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-07T19:20:05.702347" elapsed="0.000665"/>
+</kw>
+<kw name="Update Product" owner="mongo_helper">
+<msg time="2025-08-07T19:20:07.081644" level="INFO">${updated} = 1</msg>
+<var>${updated}</var>
+<arg>${inserted_id}</arg>
+<arg>${data}</arg>
+<status status="PASS" start="2025-08-07T19:20:05.703559" elapsed="1.378501"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${updated}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-08-07T19:20:07.082594" elapsed="0.000543"/>
+</kw>
+<status status="PASS" start="2025-08-07T19:20:05.697091" elapsed="1.387482"/>
+</test>
+<test id="s1-s1-s1-s1-t10" name="Update Product - identifiant invalide" line="67">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-07T19:20:07.113840" level="INFO">${data} = {'price': '3000'}</msg>
+<var>${data}</var>
+<arg>price=3000</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-07T19:20:07.113436" elapsed="0.000565"/>
+</kw>
+<kw name="Run Keyword And Expect Error" owner="BuiltIn">
+<kw name="Update Product" owner="mongo_helper">
+<msg time="2025-08-07T19:20:07.260362" level="FAIL">InvalidId: '1234' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string</msg>
+<arg>${NON_OBJECTID}</arg>
+<arg>${data}</arg>
+<status status="FAIL" start="2025-08-07T19:20:07.114748" elapsed="0.151119">InvalidId: '1234' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string</status>
+</kw>
+<arg>*</arg>
+<arg>Update Product</arg>
+<arg>${NON_OBJECTID}</arg>
+<arg>${data}</arg>
+<doc>Runs the keyword and checks that the expected error occurred.</doc>
+<status status="PASS" start="2025-08-07T19:20:07.114439" elapsed="0.151651"/>
+</kw>
+<status status="PASS" start="2025-08-07T19:20:07.109826" elapsed="0.156661"/>
+</test>
+<test id="s1-s1-s1-s1-t11" name="Update Product - donnees manquantes" line="71">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-07T19:20:07.276336" level="INFO">${data} = {}</msg>
+<var>${data}</var>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-07T19:20:07.276002" elapsed="0.000623"/>
+</kw>
+<kw name="Update Product" owner="mongo_helper">
+<msg time="2025-08-07T19:20:08.438163" level="INFO">${updated} = 0</msg>
+<var>${updated}</var>
+<arg>${inserted_id}</arg>
+<arg>${data}</arg>
+<status status="PASS" start="2025-08-07T19:20:07.276968" elapsed="1.161483"/>
+</kw>
+<kw name="Should Not Be True" owner="BuiltIn">
+<arg>${updated}</arg>
+<doc>Fails if the given condition is true.</doc>
+<status status="PASS" start="2025-08-07T19:20:08.439350" elapsed="0.000623"/>
+</kw>
+<status status="PASS" start="2025-08-07T19:20:07.270341" elapsed="1.170283"/>
+</test>
+<test id="s1-s1-s1-s1-t12" name="Delete Product - Valid ID" line="78">
+<kw name="Delete Product" owner="mongo_helper">
+<msg time="2025-08-07T19:20:09.629309" level="INFO">${deleted} = 1</msg>
+<var>${deleted}</var>
+<arg>${inserted_id}</arg>
+<status status="PASS" start="2025-08-07T19:20:08.452649" elapsed="1.177112"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${deleted}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-08-07T19:20:09.630557" elapsed="0.000692"/>
+</kw>
+<status status="PASS" start="2025-08-07T19:20:08.447210" elapsed="1.184690"/>
+</test>
+<test id="s1-s1-s1-s1-t13" name="Delete Product - Invalid ObjectId" line="82">
+<kw name="Run Keyword And Expect Error" owner="BuiltIn">
+<kw name="Delete Product" owner="mongo_helper">
+<msg time="2025-08-07T19:20:09.753702" level="FAIL">InvalidId: '1234' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string</msg>
+<arg>${NON_OBJECTID}</arg>
+<status status="FAIL" start="2025-08-07T19:20:09.646930" elapsed="0.112732">InvalidId: '1234' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string</status>
+</kw>
+<arg>*</arg>
+<arg>Delete Product</arg>
+<arg>${NON_OBJECTID}</arg>
+<doc>Runs the keyword and checks that the expected error occurred.</doc>
+<status status="PASS" start="2025-08-07T19:20:09.646199" elapsed="0.113644"/>
+</kw>
+<status status="PASS" start="2025-08-07T19:20:09.639479" elapsed="0.120704"/>
+</test>
+<test id="s1-s1-s1-s1-t14" name="Delete Product - Nonexistent ObjectId" line="85">
+<kw name="Delete Product" owner="mongo_helper">
+<msg time="2025-08-07T19:20:10.842726" level="INFO">${deleted} = 0</msg>
+<var>${deleted}</var>
+<arg>${INVALID_PRODUCT_ID}</arg>
+<status status="PASS" start="2025-08-07T19:20:09.766464" elapsed="1.076511"/>
+</kw>
+<kw name="Should Not Be True" owner="BuiltIn">
+<arg>${deleted}</arg>
+<doc>Fails if the given condition is true.</doc>
+<status status="PASS" start="2025-08-07T19:20:10.843594" elapsed="0.000660"/>
+</kw>
+<status status="PASS" start="2025-08-07T19:20:09.763622" elapsed="1.081041"/>
+</test>
+<status status="PASS" start="2025-08-07T19:19:57.884123" elapsed="12.965702"/>
+</suite>
+<status status="PASS" start="2025-08-07T19:19:57.879519" elapsed="12.974869"/>
+</suite>
+<status status="PASS" start="2025-08-07T19:19:57.871461" elapsed="12.990963"/>
+</suite>
+<status status="PASS" start="2025-08-07T19:19:57.816404" elapsed="13.050258"/>
+</suite>
+<statistics>
+<total>
+<stat pass="14" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Qa Test" id="s1" pass="14" fail="0" skip="0">Qa Test</stat>
+<stat name="Lab1" id="s1-s1" pass="14" fail="0" skip="0">Qa Test.Lab1</stat>
+<stat name="Testcases" id="s1-s1-s1" pass="14" fail="0" skip="0">Qa Test.Lab1.Testcases</stat>
+<stat name="Mongo Testcases" id="s1-s1-s1-s1" pass="14" fail="0" skip="0">Qa Test.Lab1.Testcases.Mongo Testcases</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-08-07T19:20:01.941326" level="ERROR">ValueError: Le champ 'price' doit être un nombre.</msg>
+</errors>
+</robot>
